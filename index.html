@@ -263,12 +263,13 @@ section > .wrap{position:relative;z-index:1}
 .regalii{list-style:none}
 .regalii li{position:relative;padding-left:32px;margin-bottom:16px}
 .regalii li::before{
-  content:"★";position:absolute;left:0;top:1px;color:var(--zoloto);font-size:16px;
+  content:"";position:absolute;left:0;top:2px;width:19px;height:19px;
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><polygon points="250 21.01 268.77 204.67 354.84 145.16 295.33 231.23 446.7 250 295.33 268.77 354.84 354.84 268.77 295.33 250 478.99 231.23 295.33 145.16 354.84 204.67 268.77 53.3 250 204.67 231.23 145.16 145.16 231.23 204.67 250 21.01" fill="%23c99a3f"/></svg>') center/contain no-repeat;
   animation:zvezdochka 2.6s ease-in-out infinite;
 }
 .regalii li:nth-child(2)::before{animation-delay:.8s}
 .regalii li:nth-child(3)::before{animation-delay:1.6s}
-@keyframes zvezdochka{0%,100%{opacity:.55}50%{opacity:1;text-shadow:0 0 10px rgba(232,195,124,.9)}}
+@keyframes zvezdochka{0%,100%{opacity:.55}50%{opacity:1;filter:drop-shadow(0 0 6px rgba(232,195,124,.95))}}
 
 /* ---------- 5. Пять инфо-блоков ---------- */
 .info-bloki{padding:60px 0;background:var(--krem)}
