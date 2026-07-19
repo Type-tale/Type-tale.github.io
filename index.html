@@ -27,7 +27,7 @@ const МЕРОПРИЯТИЕ = {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -51,7 +51,7 @@ body{
   overflow-x:hidden;
 }
 .wrap{max-width:480px;margin:0 auto;padding:0 22px}
-h1,h2,h3{font-family:'Comfortaa',sans-serif;font-weight:600;line-height:1.3}
+h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.3}
 b,strong{font-weight:600}
 
 /* ---------- появление секций при прокрутке ---------- */
@@ -129,25 +129,25 @@ b,strong{font-weight:600}
 }
 .hero-verh{
   position:relative;z-index:2;
-  padding:calc(11svh + env(safe-area-inset-top)) 24px 0;
+  padding:calc(6svh + env(safe-area-inset-top)) 24px 0;
   text-align:left;
 }
 .hero-verh h1{
-  font-size:29px;font-weight:700;line-height:1.4;
+  font-size:clamp(21px, 5.8vw, 29px);font-weight:700;line-height:1.4;
   text-shadow:0 2px 16px rgba(60,20,60,.75), 0 0 40px rgba(60,20,60,.5);
   opacity:0;animation:vsplytie 1.2s ease .3s forwards;
 }
 .hero-logo{
   display:block;width:100%;max-width:420px;height:auto;
-  margin:0 auto 34px;
+  margin:0 auto 26px;
   filter:drop-shadow(0 12px 20px rgba(70,30,50,.55)) drop-shadow(0 4px 8px rgba(70,30,50,.35));
   opacity:0;animation:vsplytie 1.2s ease .7s forwards;
 }
 .hero-niz{
-  position:relative;z-index:2;padding:0 24px 92px;text-align:center;
+  position:relative;z-index:2;padding:0 24px 60px;text-align:center;
 }
 .hero-niz .cta-tekst{
-  font-size:20px;font-weight:600;line-height:1.55;margin-bottom:30px;
+  font-size:clamp(15.5px, 4.4vw, 19px);font-weight:600;line-height:1.55;margin-bottom:24px;
   text-shadow:0 2px 8px rgba(70,25,60,.75), 0 0 22px rgba(70,25,60,.55);
   opacity:0;animation:vsplytie 1.2s ease 1.1s forwards;
 }
@@ -180,7 +180,7 @@ b,strong{font-weight:600}
   color:var(--sirenevyj);font-size:14px;font-style:italic;
 }
 .aktsent{
-  font-family:'Comfortaa',sans-serif;font-size:19px;font-weight:600;
+  font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;
   text-align:center;margin:28px 0;line-height:1.55;
 }
 .o-proekte .btn{margin-top:34px}
@@ -270,7 +270,7 @@ section > .wrap{position:relative;z-index:1}
 }
 .cena h2{font-size:30px;color:var(--sirenevyj);margin-bottom:34px}
 .sobytie-nazvanie{
-  font-family:'Comfortaa',sans-serif;font-size:21px;font-weight:600;
+  font-family:'Montserrat',sans-serif;font-size:21px;font-weight:700;
   line-height:1.4;margin-bottom:10px;
 }
 .sobytie-vremya{
@@ -290,7 +290,7 @@ section > .wrap{position:relative;z-index:1}
 .karta-ceny .nazvanie{font-size:17px;font-weight:500;line-height:1.45}
 .karta-ceny .data{font-weight:700;margin-top:6px}
 .karta-ceny .summa{
-  font-family:'Comfortaa',sans-serif;font-size:44px;font-weight:700;
+  font-family:'Montserrat',sans-serif;font-size:44px;font-weight:800;
   margin:22px 0;
 }
 .karta-ceny hr{border:none;border-top:1px solid #eee0d4;margin:22px 0}
