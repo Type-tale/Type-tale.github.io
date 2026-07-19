@@ -15,12 +15,32 @@ const МЕРОПРИЯТИЕ = {
   подзаголовок:  "в энергиях Полнолуния",
   дата:          "29.07.26",
   время:         "время практики будет обозначено позже",
-  цена:          "25€",
-  ссылка_оплаты: "#",   // ← сюда вставить ссылку на оплату (между кавычками)
-  что_входит: [
-    "Энергетическая активация в прямом эфире",
-    "+ запись доступна 30 дней"
-  ]
+
+  // ----- ПАКЕТЫ УЧАСТИЯ: название, цена, что входит, ссылка на оплату -----
+  пакеты: [
+    { название:"Пакет 1", цена:"25€",
+      что_входит:["Энергетическая активация в прямом эфире","+ запись доступна 30 дней"],
+      ссылка_оплаты:"#" },
+    { название:"Пакет 2", цена:"45€",
+      что_входит:["✎ описание пакета появится здесь"],
+      ссылка_оплаты:"#" },
+    { название:"Пакет 3", цена:"65€",
+      что_входит:["✎ описание пакета появится здесь"],
+      ссылка_оплаты:"#" },
+    { название:"Пакет 4", цена:"85€",
+      что_входит:["✎ описание пакета появится здесь"],
+      ссылка_оплаты:"#" },
+    { название:"Пакет 5", цена:"111€",
+      что_входит:["✎ описание пакета появится здесь"],
+      ссылка_оплаты:"#" }
+  ],
+
+  // ----- ССЫЛКИ НА СОЦСЕТИ (внизу сайта) -----
+  соцсети: {
+    instagram: "#",   // ← вставить ссылку на Instagram
+    facebook:  "#",   // ← вставить ссылку на Facebook
+    telegram:  "#"    // ← вставить ссылку на группу Telegram
+  }
 };
 </script>
 <!-- ================== конец блока настроек ======================= -->
@@ -132,10 +152,10 @@ b,strong{font-weight:600}
 .hero-verh{
   position:relative;z-index:2;
   padding:calc(6svh + env(safe-area-inset-top)) 24px 0;
-  text-align:left;
+  text-align:center;
 }
 .hero-verh h1{
-  font-size:clamp(21px, 5.8vw, 29px);font-weight:700;line-height:1.4;
+  font-size:clamp(18px, 4.9vw, 24px);font-weight:700;line-height:1.45;
   text-shadow:0 2px 16px rgba(60,20,60,.75), 0 0 40px rgba(60,20,60,.5);
   opacity:0;animation:vsplytie 1.2s ease .3s forwards;
 }
@@ -149,7 +169,7 @@ b,strong{font-weight:600}
   position:relative;z-index:2;padding:0 24px 60px;text-align:center;
 }
 .hero-niz .cta-tekst{
-  font-size:clamp(15.5px, 4.4vw, 19px);font-weight:600;line-height:1.55;margin-bottom:24px;
+  font-size:clamp(14px, 3.9vw, 16.5px);font-weight:600;line-height:1.6;margin-bottom:24px;
   text-shadow:0 2px 8px rgba(70,25,60,.75), 0 0 22px rgba(70,25,60,.55);
   opacity:0;animation:vsplytie 1.2s ease 1.1s forwards;
 }
@@ -282,7 +302,7 @@ section > .wrap{position:relative;z-index:1}
 .karta-ceny{
   position:relative;
   background:#fff;border:1.5px solid var(--zoloto-svetloe);border-radius:22px;
-  padding:34px 26px;
+  padding:34px 26px;margin-bottom:24px;
   animation:kartaSvet 4s ease-in-out infinite;
 }
 @keyframes kartaSvet{
@@ -305,6 +325,17 @@ footer{
   font-size:13px;color:var(--tekst-myagkij);
   background:#f6e9f2;
 }
+.soc-seti{display:flex;justify-content:center;gap:26px;margin-bottom:22px}
+.soc-seti a{
+  display:flex;align-items:center;justify-content:center;
+  width:52px;height:52px;border-radius:50%;
+  color:var(--sirenevyj);background:#fff;
+  border:1.5px solid rgba(123,94,167,.35);
+  box-shadow:0 6px 16px rgba(120,90,140,.12);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.soc-seti a:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(120,90,140,.22)}
+.soc-seti svg{width:24px;height:24px}
 
 /* ---------- отключение анимаций по желанию системы ---------- */
 @media (prefers-reduced-motion: reduce){
@@ -477,18 +508,22 @@ footer{
     </div>
     <div class="sobytie-vremya reveal" data-cfg="время"></div>
 
-    <div class="karta-ceny reveal">
-      <div class="nazvanie" data-cfg="название"></div>
-      <div class="data" data-cfg="дата"></div>
-      <div class="summa zoloto-tekst" data-cfg="цена"></div>
-      <hr>
-      <div id="spisok-vklyucheno"></div>
-      <a href="#" class="btn btn-zoloto knopka-oplaty">Присоединиться</a>
-    </div>
+    <div id="pakety"></div>
   </div>
 </section>
 
 <footer>
+  <div class="soc-seti">
+    <a id="soc-instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a id="soc-facebook" href="#" aria-label="Facebook" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.2c0-.84.23-1.41 1.44-1.41h1.54V5.2c-.27-.04-1.18-.11-2.24-.11-2.22 0-3.74 1.35-3.74 3.84v2.18H8v2.9h2.5v7h3z"/></svg>
+    </a>
+    <a id="soc-telegram" href="#" aria-label="Telegram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 4.6 3.6 11.5c-.9.35-.88 1.02-.15 1.24l4.53 1.41 1.75 5.36c.21.58.38.8.78.8.4 0 .58-.18.8-.4l2.17-2.11 4.51 3.33c.83.46 1.43.22 1.64-.77l2.96-13.94c.3-1.21-.46-1.76-1.16-1.42zM8.6 13.9l9.44-5.96c.47-.29.9-.13.55.19l-8.08 7.3-.31 3.36-1.6-4.89z"/></svg>
+    </a>
+  </div>
   © Татьяна Чередникова · Активация Жизни
 </footer>
 </main>
@@ -498,11 +533,23 @@ footer{
 document.querySelectorAll('[data-cfg]').forEach(el=>{
   el.textContent = МЕРОПРИЯТИЕ[el.dataset.cfg] ?? '';
 });
-document.getElementById('spisok-vklyucheno').innerHTML =
-  МЕРОПРИЯТИЕ.что_входит.map(s=>`<div class="vklyucheno">${s}</div>`).join('');
-document.querySelectorAll('.knopka-oplaty').forEach(a=>{
-  a.href = МЕРОПРИЯТИЕ.ссылка_оплаты;
-});
+
+/* ---- Пакеты участия ---- */
+document.getElementById('pakety').innerHTML = МЕРОПРИЯТИЕ.пакеты.map(p=>`
+  <div class="karta-ceny reveal">
+    <div class="nazvanie">${p.название}</div>
+    <div class="data">${МЕРОПРИЯТИЕ.дата}</div>
+    <div class="summa zoloto-tekst">${p.цена}</div>
+    <hr>
+    ${p.что_входит.map(s=>`<div class="vklyucheno">${s}</div>`).join('')}
+    <a href="${p.ссылка_оплаты}" class="btn btn-zoloto">Присоединиться</a>
+  </div>`).join('');
+
+/* ---- Соцсети в подвале ---- */
+for(const [set,ssylka] of Object.entries(МЕРОПРИЯТИЕ.соцсети)){
+  const a = document.getElementById('soc-'+set);
+  if(a) a.href = ssylka;
+}
 
 /* ---- Золотые искры в шапке ---- */
 const kont = document.getElementById('iskry');
