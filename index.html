@@ -366,8 +366,9 @@ footer{
   .mandala-sekciya h2,.provodnik h2,.info-bloki h2{font-size:32px}
   .mandala{width:250px;height:250px}
 
-  /* проводник — та же высота, обрезка по бокам */
-  .foto-slot img{height:600px;object-fit:cover;object-position:center 28%}
+  /* проводник — фото целиком, ограничено по ширине и по центру */
+  .foto-slot{max-width:780px;margin:0 auto}
+  .foto-slot img{height:auto;object-fit:contain}
 
   /* пакеты в несколько колонок */
   .cena .wrap{max-width:1080px}
