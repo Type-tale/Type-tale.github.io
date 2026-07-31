@@ -257,10 +257,9 @@ section > .wrap{position:relative;z-index:1}
   display:block;width:100%;height:520px;      /* фиксированная высота на телефоне */
   object-fit:cover;object-position:46% center; /* обрезка по бокам, фигура в кадре */
 }
-.foto-slot::after{ /* мягкое растворение верхнего и нижнего краёв в фон секции */
+.foto-slot::after{ /* лёгкое растворение только нижнего края */
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(180deg,#fdeee8 0%,rgba(253,238,232,0) 14%,rgba(247,227,239,0) 84%,#f7e3ef 100%);
+  background:linear-gradient(180deg,rgba(247,227,239,0) 88%,#f7e3ef 100%);
 }
 .provodnik h2{font-size:27px;color:var(--temno-fiolet);margin:40px 0 22px;line-height:1.3}
 .regalii{list-style:none}
